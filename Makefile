@@ -63,6 +63,10 @@ ft_printf_try_consume_precision.c \
 ft_printf_try_consume_width.c \
 ft_printf.c \
 ft_vfprintf.c \
+) \
+$(addprefix get_next_line/, \
+get_next_line_utils.c \
+get_next_line.c \
 )
 OBJS := $(SRCS:%.c=%.o)
 
