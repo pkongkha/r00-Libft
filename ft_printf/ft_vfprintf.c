@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 01:36:23 by pkongkha          #+#    #+#             */
-/*   Updated: 2025/10/10 02:39:16 by pkongkha         ###   ########.fr       */
+/*   Updated: 2025/12/22 08:09:51 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	ft_vfprintf(int fd, const char *format, va_list ap)
 			format_check_point = format++;
 			ft_printf_try_consume_info(&ft_printf_info, &format);
 			ft_printf_info.spec = *format;
-			if (!ft_printf_conv(&ft_printf_info, ap, &ft_printf_buffer))
+			if (!ft_printf_conv(&ft_printf_info, &ap, &ft_printf_buffer))
 			{
 				format = format_check_point;
 				ft_printf_buffer_putc(&ft_printf_buffer, *format);

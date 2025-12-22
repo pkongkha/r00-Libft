@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 00:47:50 by pkongkha          #+#    #+#             */
-/*   Updated: 2025/10/10 02:31:47 by pkongkha         ###   ########.fr       */
+/*   Updated: 2025/12/22 08:10:20 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 size_t	ft_printf_conv_nbrbase(char *buf, int num, char *base);
 size_t	ft_printf_conv_unbrbase(char *buf, unsigned int num, char *base);
 
-bool	ft_printf_conv(struct s_ft_printf_info *pf_info, va_list ap,
+bool	ft_printf_conv(struct s_ft_printf_info *pf_info, va_list *ap,
 			struct s_ft_printf_buffer *pf_buf);
 void	ft_printf_conv_char(struct s_ft_printf_info *pf_info, char ch,
 			struct s_ft_printf_buffer *pf_buf);
