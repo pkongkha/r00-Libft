@@ -37,6 +37,7 @@ ft_lstadd_back.c \
 ft_substr.c \
 ft_calloc.c \
 ft_isprint.c \
+ft_isspace.c \
 ft_putstr_fd.c \
 ft_memcmp.c \
 ft_memcpy.c \
