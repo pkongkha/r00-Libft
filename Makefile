@@ -89,7 +89,7 @@ NAME := libft.a
 all: $(NAME)
 clean:
 	$(RM) $(OBJS) $(DEPS)
-	rmdir --ignore-fail-on-non-empty $(OBJDIRS) 2> /dev/null | true
+	rmdir --ignore-fail-on-non-empty $(OBJDIRS) 2>/dev/null | true
 fclean: clean
 	$(RM) $(NAME)
 re: fclean all
