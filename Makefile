@@ -85,14 +85,14 @@ AR ?= ar
 NAME := libft.a
 
 .PHONY: all clean fclean re
+.NOTPARALLEL: re
 all: $(NAME)
 clean:
 	$(RM) $(OBJS) $(DEPS)
 	rmdir --ignore-fail-on-non-empty $(OBJDIRS) 2> /dev/null | true
 fclean: clean
 	$(RM) $(NAME)
-re: fclean
-	$(MAKE) all
+re: fclean all
 
 $(OBJDIR):
 	@mkdir -p $(OBJDIRS)
