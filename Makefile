@@ -73,7 +73,7 @@ get_next_line.c \
 OBJDIR ?= .obj
 OBJDIRS ?= $(addprefix $(OBJDIR)/,ft_printf get_next_line) $(OBJDIR)
 OBJS := $(SRCS:%.c=$(OBJDIR)/%.o)
-DEPS := $(OBJS:%.o=%.d)
+DEPS := $(OBJS:.o=.d)
 
 CFLAGS += -Wall -Wextra -Werror
 CFLAGS += -MMD -MP
@@ -102,4 +102,4 @@ $(OBJDIR)/%.o: %.c | $(OBJDIR)
 $(NAME): $(OBJS)
 	$(AR) rcs $@ $^
 
--include $(OBJS:.o=.d)
+-include $(DEPS)
