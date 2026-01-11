@@ -69,9 +69,15 @@ $(addprefix get_next_line/, \
 get_next_line_utils.c \
 get_next_line.c \
 )
-OBJS := $(SRCS:%.c=%.o)
 
-CFLAGS += -Wall -Wextra -Werror -I.
+OBJDIR ?= .obj
+OBJDIRS ?= $(addprefix $(OBJDIR)/,ft_printf get_next_line) $(OBJDIR)
+OBJS := $(SRCS:%.c=$(OBJDIR)/%.o)
+DEPS := $(OBJS:%.o=%.d)
+
+CFLAGS += -Wall -Wextra -Werror
+CFLAGS += -MMD -MP
+CFLAGS += -I.
 
 CC ?= cc
 AR ?= ar
@@ -81,12 +87,19 @@ NAME := libft.a
 .PHONY: all clean fclean re
 all: $(NAME)
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(DEPS)
+	rmdir --ignore-fail-on-non-empty $(OBJDIRS) 2> /dev/null | true
 fclean: clean
 	$(RM) $(NAME)
-re: fclean all
+re: fclean
+	$(MAKE) all
+
+$(OBJDIR):
+	@mkdir -p $(OBJDIRS)
+$(OBJDIR)/%.o: %.c | $(OBJDIR)
+	$(CC) -c $(CFLAGS) -o $@ $<
 
 $(NAME): $(OBJS)
 	$(AR) rcs $@ $^
-%.o: %.c
-	$(CC) -c $(CFLAGS) -o $@ $<
+
+-include $(OBJS:.o=.d)
