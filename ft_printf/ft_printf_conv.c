@@ -6,13 +6,13 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 18:37:05 by pkongkha          #+#    #+#             */
-/*   Updated: 2025/12/22 08:10:58 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/01/11 18:09:25 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_conv.h"
 
-bool	ft_printf_conv(struct s_ft_printf_info *pf_info, va_list *ap,
+bool	ft_printf_conv(struct s_ft_printf_info *pf_info, va_list ap[1],
 	struct s_ft_printf_buffer *pf_buf)
 {
 	if (pf_info->spec == 'c')

@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 03:48:49 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/01/04 01:38:59 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/01/11 18:09:22 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,5 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 char	*get_next_line(int fd);
-int		ft_vfprintf(int fd, const char *format, va_list ap);
 int		ft_printf(const char *format, ...);
 #endif

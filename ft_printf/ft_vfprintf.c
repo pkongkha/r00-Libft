@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 01:36:23 by pkongkha          #+#    #+#             */
-/*   Updated: 2025/12/22 08:09:51 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/01/11 18:09:28 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	ft_printf_try_consume_info(struct s_ft_printf_info *ft_printf_info,
 	ft_printf_try_consume_precision(ft_printf_info, format);
 }
 
-int	ft_vfprintf(int fd, const char *format, va_list ap)
+int	ft_vfprintf(int fd, const char *format, va_list ap[1])
 {
 	struct s_ft_printf_buffer	ft_printf_buffer;
 	struct s_ft_printf_info		ft_printf_info;
@@ -52,7 +52,7 @@ int	ft_vfprintf(int fd, const char *format, va_list ap)
 			format_check_point = format++;
 			ft_printf_try_consume_info(&ft_printf_info, &format);
 			ft_printf_info.spec = *format;
-			if (!ft_printf_conv(&ft_printf_info, &ap, &ft_printf_buffer))
+			if (!ft_printf_conv(&ft_printf_info, ap, &ft_printf_buffer))
 			{
 				format = format_check_point;
 				ft_printf_buffer_putc(&ft_printf_buffer, *format);

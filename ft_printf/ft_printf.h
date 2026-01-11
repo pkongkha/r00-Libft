@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 01:32:02 by pkongkha          #+#    #+#             */
-/*   Updated: 2025/10/10 00:46:54 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/01/11 18:09:30 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ struct	s_ft_printf_info
 	char			pad;
 };
 
-int	ft_vfprintf(int fd, const char *format, va_list ap);
+int	ft_vfprintf(int fd, const char *format, va_list ap[1]);
 int	ft_printf(const char *format, ...);
 #endif
