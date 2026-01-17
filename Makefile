@@ -5,6 +5,7 @@ ft_strdup.c \
 ft_strtrim.c \
 ft_strchr.c \
 ft_isdigit.c \
+ft_isxdigit.c \
 ft_toupper.c \
 ft_memchr.c \
 ft_strrchr.c \
