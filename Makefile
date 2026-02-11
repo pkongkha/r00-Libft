@@ -45,6 +45,7 @@ ft_memcmp.c \
 ft_memcpy.c \
 ft_strmapi.c \
 ft_strlcpy.c \
+ft_abs.c \
 $(addprefix ft_printf/, \
 ft_printf_buffer_flush.c \
 ft_printf_buffer_init.c \
