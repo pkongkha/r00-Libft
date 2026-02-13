@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 20:29:02 by pkongkha          #+#    #+#             */
-/*   Updated: 2025/10/11 11:42:58 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/02/13 11:37:36 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,6 @@ static size_t	ft_printf_conv_p(char *buf, size_t num)
 		--buf;
 	}
 	return (digits);
-}
-
-static int	ft_max(int a, int b)
-{
-	if (a > b)
-		return (a);
-	else
-		return (b);
 }
 
 void	ft_printf_conv_ptr(struct s_ft_printf_info *pf_info, void *ptr,
