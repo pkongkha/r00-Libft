@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 03:48:49 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/02/11 16:17:07 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/02/13 11:21:59 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
+int		ft_min(int a, int b);
+int		ft_max(int a, int b);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
