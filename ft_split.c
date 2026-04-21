@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 22:32:15 by pkongkha          #+#    #+#             */
-/*   Updated: 2025/09/06 20:30:49 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/04/21 21:36:03 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,11 @@ static size_t	ft_count_substr(char const *s, char sep)
 
 static void	*ft_substr_clear_ret_null(char **substr)
 {
+	char **const	substr_o = substr;
+
 	while (*substr)
 		free(*substr++);
-	free(substr);
+	free(substr_o);
 	return (NULL);
 }
 
