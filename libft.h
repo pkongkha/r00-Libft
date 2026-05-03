@@ -6,7 +6,7 @@
 /*   By: pkongkha <pkongkha@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 03:48:49 by pkongkha          #+#    #+#             */
-/*   Updated: 2026/02/13 11:28:00 by pkongkha         ###   ########.fr       */
+/*   Updated: 2026/05/04 03:33:19 by pkongkha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_list
 }					t_list;
 
 char	**ft_split(char const *s, char c);
+void	ft_split_destroy(char **strs);
 char	*ft_itoa(int n);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s);
