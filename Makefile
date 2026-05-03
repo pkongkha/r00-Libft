@@ -80,7 +80,7 @@ OBJDIRS ?= $(addprefix $(OBJDIR)/,ft_printf get_next_line) $(OBJDIR)
 OBJS := $(SRCS:%.c=$(OBJDIR)/%.o)
 DEPS := $(OBJS:.o=.d)
 
-CFLAGS += -Wall -Wextra -Werror -pedantic -pedantic-errors
+CFLAGS += -Wall -Wextra -Werror -pedantic
 CFLAGS += -MMD -MP
 CFLAGS += -I.
 
