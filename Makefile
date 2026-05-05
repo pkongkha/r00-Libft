@@ -83,6 +83,7 @@ DEPS := $(OBJS:.o=.d)
 
 CFLAGS += -Wall -Wextra -Werror -pedantic
 CFLAGS += -MMD -MP
+CFLAGS += -O2 -ftree-vectorize -march=native
 CFLAGS += -I.
 
 CC ?= cc
