@@ -1,4 +1,6 @@
-SRCS := \
+.POSIX:
+
+SRCS = \
 ft_abs.c \
 ft_atoi.c \
 ft_bzero.c \
@@ -49,37 +51,31 @@ ft_strtrim.c \
 ft_substr.c \
 ft_tolower.c \
 ft_toupper.c \
-$(addprefix ft_printf/, \
-ft_printf.c \
-ft_printf_buffer_flush.c \
-ft_printf_buffer_init.c \
-ft_printf_buffer_pad.c \
-ft_printf_buffer_putc.c \
-ft_printf_buffer_puts.c \
-ft_printf_buffer_write.c \
-ft_printf_conv.c \
-ft_printf_conv_char.c \
-ft_printf_conv_deci.c \
-ft_printf_conv_hex.c \
-ft_printf_conv_nbrbase.c \
-ft_printf_conv_ptr.c \
-ft_printf_conv_str.c \
-ft_printf_conv_udeci.c \
-ft_printf_conv_unbrbase.c \
-ft_printf_try_consume_flag.c \
-ft_printf_try_consume_precision.c \
-ft_printf_try_consume_width.c \
-ft_vfprintf.c \
-) \
-$(addprefix get_next_line/, \
-get_next_line.c \
-get_next_line_utils.c \
-)
+ft_printf/ft_printf.c \
+ft_printf/ft_printf_buffer_flush.c \
+ft_printf/ft_printf_buffer_init.c \
+ft_printf/ft_printf_buffer_pad.c \
+ft_printf/ft_printf_buffer_putc.c \
+ft_printf/ft_printf_buffer_puts.c \
+ft_printf/ft_printf_buffer_write.c \
+ft_printf/ft_printf_conv.c \
+ft_printf/ft_printf_conv_char.c \
+ft_printf/ft_printf_conv_deci.c \
+ft_printf/ft_printf_conv_hex.c \
+ft_printf/ft_printf_conv_nbrbase.c \
+ft_printf/ft_printf_conv_ptr.c \
+ft_printf/ft_printf_conv_str.c \
+ft_printf/ft_printf_conv_udeci.c \
+ft_printf/ft_printf_conv_unbrbase.c \
+ft_printf/ft_printf_try_consume_flag.c \
+ft_printf/ft_printf_try_consume_precision.c \
+ft_printf/ft_printf_try_consume_width.c \
+ft_printf/ft_vfprintf.c \
+get_next_line/get_next_line.c \
+get_next_line/get_next_line_utils.c
 
-OBJDIR ?= .obj
-OBJDIRS ?= $(addprefix $(OBJDIR)/,ft_printf get_next_line) $(OBJDIR)
-OBJS := $(SRCS:%.c=$(OBJDIR)/%.o)
-DEPS := $(OBJS:.o=.d)
+OBJS = $(SRCS:.c=.o)
+DEPS = $(OBJS:.o=.d)
 
 CFLAGS += -Wall -Wextra -Werror -pedantic
 CFLAGS += -MMD -MP
@@ -88,25 +84,23 @@ CFLAGS += -I.
 
 CC ?= cc
 AR ?= ar
+RM ?= rm -f
 
-NAME := libft.a
+NAME = libft.a
 
 .PHONY: all clean fclean re
-.NOTPARALLEL: re
 all: $(NAME)
 clean:
 	$(RM) $(OBJS) $(DEPS)
-	rmdir --ignore-fail-on-non-empty $(OBJDIRS) 2>/dev/null | true
 fclean: clean
 	$(RM) $(NAME)
-re: fclean all
-
-$(OBJDIR):
-	@mkdir -p $(OBJDIRS)
-$(OBJDIR)/%.o: %.c | $(OBJDIR)
-	$(CC) -c $(CFLAGS) -o $@ $<
+re: fclean .WAIT all
 
 $(NAME): $(OBJS)
 	$(AR) rcs $@ $^
+
+.SUFFIXES: .o .c
+.c.o:
+	$(CC) -c $(CFLAGS) -o $@ $<
 
 -include $(DEPS)
